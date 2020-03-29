@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="fcce9490-198a-4c89-a232-0edc6df1d457" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution>
+      <executable />
+    </execution>
+  </component>
+  <component name="ProjectId" id="1XkRDpvmakEx0ZG1HAFnHZOAqg5" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fcce9490-198a-4c89-a232-0edc6df1d457" name="Default Changelist" comment="" />
+      <created>1581587988517</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1581587988517</updated>
+      <workItem from="1581587989984" duration="2436000" />
+      <workItem from="1582923493979" duration="1204000" />
+      <workItem from="1582978286667" duration="1809000" />
+      <workItem from="1583683353824" duration="962000" />
+      <workItem from="1583684335325" duration="4001000" />
+      <workItem from="1583789669871" duration="688000" />
+      <workItem from="1584655314700" duration="1122000" />
+      <workItem from="1584699545120" duration="6000" />
+      <workItem from="1585392414708" duration="1047000" />
+      <workItem from="1585421798288" duration="12547000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="421" y="116" key="FileChooserDialogImpl" timestamp="1584655343281">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state x="421" y="116" key="FileChooserDialogImpl/0.0.1280.720@0.0.1280.720" timestamp="1584655343281" />
+    <state x="477" y="284" key="NewPhpFileDialog" timestamp="1585491813839">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state x="477" y="284" key="NewPhpFileDialog/0.0.1280.720@0.0.1280.720" timestamp="1585491813839" />
+    <state x="144" y="6" key="SettingsEditor" timestamp="1582923542321">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state x="144" y="6" key="SettingsEditor/0.0.1280.720@0.0.1280.720" timestamp="1582923542321" />
+    <state x="348" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1585421799189">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state x="348" y="188" key="com.intellij.ide.util.TipDialog/0.0.1280.720@0.0.1280.720" timestamp="1585421799189" />
+    <state x="297" y="161" key="run.anything.popup" timestamp="1585431326628">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state x="297" y="161" key="run.anything.popup/0.0.1280.720@0.0.1280.720" timestamp="1585431326628" />
+  </component>
+</project>

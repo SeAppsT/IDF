@@ -1,0 +1,14 @@
+{
+  "connections": {
+    "sql": [
+      {
+        "type": "mysql",
+        "connection_name": "main",
+        "hostname": "localhost",
+        "username": "79856452111",
+        "password": "serg",
+        "database": "79856452111"
+      }
+    ]
+  }
+}
