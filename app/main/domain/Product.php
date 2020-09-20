@@ -2,9 +2,10 @@
 
 class Product {
     private $id;
-    private $table;
+    private $table = 'products';
     private $price;
     private $name;
+    private $rating;
 
     public function addToCart(Order $order){
         $order -> addProductToCart($this);
@@ -27,6 +28,10 @@ class Product {
         return $this -> name;
     }
 
+    public function getRating(){
+        return $this->rating;
+    }
+
     public function setId($id): void{
         $this -> id = $id;
     }
@@ -41,5 +46,9 @@ class Product {
 
     public function setName($name): void{
         $this -> name = $name;
+    }
+
+    public function setRating($rating): void{
+        $this->rating = $rating;
     }
 }

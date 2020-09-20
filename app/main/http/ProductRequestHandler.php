@@ -1,9 +1,5 @@
 <?php
 
-
-use Request;
-use Response;
-
 Source::addRequestHandler(function (Request $request): Response {
     $product = new \Product();
     $productDataObject = new \ProductDataObject();
@@ -28,9 +24,19 @@ Source::addRequestHandler(function (Request $request): Response{
     $order = new Order();
     $order -> setId($request -> pathVariable('cart_id'));
     $order -> addProductToCart($product);
-    $productDataObject = new ProductDataObject();
-    $productFromDB = $productDataObject -> one() -> where('price', ['<', '400']) -> go();
-    echo 'HANDLER product/cart';
+    $product -> setName("Product from fwk");
+    $product -> setPrice(null);
+    $product -> setRating(5);
+    $productDataObject = new ProductDataObject($product);
+    $productFromDB = $productDataObject -> del()
+        -> where('price', bigger(400))
+        -> where('rating', letter(2))
+        -> go();
+    $productFromDB = $productDataObject -> get()
+        -> where('price', letter(400))
+        -> go();
+    print_r($productFromDB);
+
     return new PageResponse('page.html');
 })
     -> setPath('product/{product_id}/cart/{cart_id}');

@@ -9,6 +9,7 @@ class Source{
     private static array $implementations = Array(
         'mappers' => [],
     );
+    public static bool $debug = true;
 
     public static function configure($path, $method = 'json'){
         $config_info = file_get_contents($path);
@@ -41,17 +42,14 @@ class Source{
     public static function build(){
 
         foreach (glob("core{/*, /*/*, /*/*/*}/*.php", GLOB_BRACE) as $component){
-            echo $component.'<br /> ';
             require_once $component;
         }
 
         foreach (glob("implementation{/*, /*/*, /*/*/*}/*.php", GLOB_BRACE) as $component){
-            echo $component.'<br /> ';
             require_once $component;
         }
 
         foreach (glob("app/*/*/*.php", GLOB_BRACE) as $component){
-            echo $component.'<br /> ';
             require_once $component;
         }
     }
@@ -61,7 +59,7 @@ class Source{
     }
 
     public static function getMapperImplementation($type): Mapper {
-        return new self::$implementations['mappers'][$type];
+        return new self::$implementations['mappers'][$type]();
     }
 
     public static function addMapperImplementation($name){

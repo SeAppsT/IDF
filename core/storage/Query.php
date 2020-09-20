@@ -4,7 +4,7 @@ class Query {
     private $action;
     private $conditions;
     private $changes;
-    private $entity;
+    private DataObject $entity;
     private $subQueries = [];
 
     public function __construct($action, $entity){
@@ -27,5 +27,25 @@ class Query {
 
     public function go($connection_name = 'main'){
         return Source::getConnection($connection_name) -> query($this);
+    }
+
+    public function getAction(){
+        return $this->action;
+    }
+
+    public function getConditions(){
+        return $this->conditions;
+    }
+
+    public function getChanges(){
+        return $this->changes;
+    }
+
+    public function getEntity(): DataObject{
+        return $this->entity;
+    }
+
+    public function getSubQueries(): array{
+        return $this->subQueries;
     }
 }
