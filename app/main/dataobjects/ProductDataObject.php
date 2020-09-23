@@ -9,8 +9,9 @@ class ProductDataObject implements DataObject {
     private Product $product;
     private string $name = 'products';
 
-    public function __construct(Product $product){
-        $this -> product = $product;
+    public function __construct(Product $product = null){
+        if ($product != null)
+            $this -> product = $product;
     }
 
     public function setProduct(Product $product): void{

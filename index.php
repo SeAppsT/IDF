@@ -4,6 +4,7 @@ require 'core/Source.php';
 Source::addMapperImplementation(SqlMapper::class);
 Source::addMapperImplementation(JsonMapper::class);
 Source::addRequestHandlerImplementation(BaseRequestHandler::class);
+Source::addSessionImplementation(HttpSession::class);
 // register implementations
 
 Source::build(); // load classes

@@ -6,6 +6,7 @@ class JsonResponse implements Response {
 
     public function __construct($body){
         $this -> object = $body;
+        $this -> showBody();
     }
 
     public function addHeader($name, $value){

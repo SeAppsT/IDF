@@ -38,7 +38,6 @@ Source::addRequestHandler(function (Request $request): Response{
         -> outer(
             $productDataObject -> get()
                 -> where('price', bigger(50))
-                -> go()
         )
         -> go();
 

@@ -19,19 +19,28 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fcce9490-198a-4c89-a232-0edc6df1d457" name="Default Changelist" comment="Big database patch">
-      <change afterPath="$PROJECT_DIR$/core/storage/AiQuery.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/storage/Condition.php" afterDir="false" />
+    <list default="true" id="fcce9490-198a-4c89-a232-0edc6df1d457" name="Default Changelist" comment="AiQuery attempt">
+      <change afterPath="$PROJECT_DIR$/app/main/dataobjects/UserDataObject.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/main/domain/User.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/main/http/AuthRequestHandler.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/templates/error.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/templates/success.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/storage/Auth.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/storage/Authable.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/storage/Session.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/implementation/session/HttpSession.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/main/dataobjects/ProductDataObject.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/main/dataobjects/ProductDataObject.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/main/domain/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/main/domain/Order.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/main/domain/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/main/domain/Product.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/main/http/ProductRequestHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/main/http/ProductRequestHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/storage/DataObject.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/storage/DataObject.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/storage/Query.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/storage/Query.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/implementation/mapper/JsonMapper.php" beforeDir="false" afterPath="$PROJECT_DIR$/implementation/mapper/JsonMapper.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/implementation/mapper/SqlMapper.php" beforeDir="false" afterPath="$PROJECT_DIR$/implementation/mapper/SqlMapper.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/Source.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/Source.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/http/Request.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/http/Request.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/storage/AiQuery.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/storage/Condition.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/storage/DBHelpers.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/storage/DBHelpers.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/implementation/request/BaseRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/implementation/request/BaseRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/implementation/response/JsonResponse.php" beforeDir="false" afterPath="$PROJECT_DIR$/implementation/response/JsonResponse.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/implementation/response/PageResponse.php" beforeDir="false" afterPath="$PROJECT_DIR$/implementation/response/PageResponse.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +49,13 @@
   </component>
   <component name="ComposerSettings">
     <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -50,6 +66,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -62,7 +79,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.PHP" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -86,7 +103,7 @@
       <workItem from="1584699545120" duration="6000" />
       <workItem from="1585392414708" duration="1047000" />
       <workItem from="1585421798288" duration="12547000" />
-      <workItem from="1600611068427" duration="26717000" />
+      <workItem from="1600611068427" duration="33578000" />
     </task>
     <task id="LOCAL-00001" summary="Big database patch">
       <created>1600634331740</created>
@@ -95,7 +112,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600634331740</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="AiQuery attempt">
+      <created>1600875462203</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1600875462203</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -114,20 +138,29 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Big database patch" />
-    <option name="LAST_COMMIT_MESSAGE" value="Big database patch" />
+    <MESSAGE value="AiQuery attempt" />
+    <option name="LAST_COMMIT_MESSAGE" value="AiQuery attempt" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="435" y="70" key="#com.intellij.ide.util.MemberChooser" timestamp="1600693421784">
+    <state x="435" y="70" key="#com.intellij.ide.util.MemberChooser" timestamp="1600895818951">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state x="435" y="70" key="#com.intellij.ide.util.MemberChooser/0.0.1280.720@0.0.1280.720" timestamp="1600693421784" />
-    <state x="398" y="84" key="NewPhpClassDialog" timestamp="1600702054273">
+    <state x="435" y="70" key="#com.intellij.ide.util.MemberChooser/0.0.1280.720@0.0.1280.720" timestamp="1600895818951" />
+    <state x="398" y="84" key="NewPhpClassDialog" timestamp="1600891739365">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state x="398" y="84" key="NewPhpClassDialog/0.0.1280.720@0.0.1280.720" timestamp="1600702054273" />
-    <state x="233" y="94" key="Vcs.Push.Dialog.v2" timestamp="1600634336579">
+    <state x="398" y="84" key="NewPhpClassDialog/0.0.1280.720@0.0.1280.720" timestamp="1600891739365" />
+    <state x="477" y="284" key="NewPhpFileDialog" timestamp="1600889702335">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state x="233" y="94" key="Vcs.Push.Dialog.v2/0.0.1280.720@0.0.1280.720" timestamp="1600634336579" />
+    <state x="477" y="284" key="NewPhpFileDialog/0.0.1280.720@0.0.1280.720" timestamp="1600889702335" />
+    <state x="142" y="6" key="SettingsEditor" timestamp="1600890150401">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state x="142" y="6" key="SettingsEditor/0.0.1280.720@0.0.1280.720" timestamp="1600890150401" />
+    <state x="233" y="94" key="Vcs.Push.Dialog.v2" timestamp="1600875464468">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state x="233" y="94" key="Vcs.Push.Dialog.v2/0.0.1280.720@0.0.1280.720" timestamp="1600875464468" />
   </component>
 </project>

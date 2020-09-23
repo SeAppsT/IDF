@@ -6,6 +6,7 @@ class PageResponse implements Response {
 
     public function __construct($body){
         $this -> path = $body;
+        $this -> showBody();
     }
 
     public function addHeader($name, $value){
@@ -13,6 +14,8 @@ class PageResponse implements Response {
     }
 
     public function showBody(array $args = null){
-        require_once $this -> path;
+        if ($args != null)
+            extract($args);
+        require_once 'app/'.$this -> path;
     }
 }

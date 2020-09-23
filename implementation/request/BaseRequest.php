@@ -12,8 +12,8 @@ class BaseRequest implements Request {
         return $this -> vars[$name];
     }
 
-    public function bodyParam(string $name): string{
-        // TODO: Implement bodyParam() method.
+    public function bodyParam(string $name){
+        return file_get_contents('php://input');
     }
 
     public function queryString(): array {
@@ -22,5 +22,9 @@ class BaseRequest implements Request {
 
     public function collectInformation(RequestHandler $requestHandler): void {
         $this -> vars = $requestHandler -> getVars();
+    }
+
+    public function requestBody(){
+        return file_get_contents('php://input');
     }
 }

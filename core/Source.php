@@ -74,6 +74,14 @@ class Source{
         self::$implementations['request_handlers'][explode('RequestHandler', $name)[0]] = $name;
     }
 
+    public static function getSessionImplementation($type): Session{
+        return new self::$implementations['sessions'][$type];
+    }
+
+    public static function addSessionImplementation($name){
+        self::$implementations['sessions'][explode('Session', $name)[0]] = $name;
+    }
+
     public static function start(Request $request){
         foreach (self::$paths as $requestHandler){
             if ($requestHandler -> isItOk($request -> queryString())) {
