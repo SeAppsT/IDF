@@ -9,7 +9,7 @@ class Source{
     private static array $implementations = Array(
         'mappers' => [],
     );
-    public static bool $debug = true;
+    public static bool $debug = false;
 
     public static function configure($path, $method = 'json'){
         $config_info = file_get_contents($path);

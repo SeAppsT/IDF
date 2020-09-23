@@ -19,20 +19,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fcce9490-198a-4c89-a232-0edc6df1d457" name="Default Changelist" comment="Auth and request works, AiQuery deprecated">
-      <change afterPath="$PROJECT_DIR$/app/main/pages/products.phtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/templates/footer.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/templates/header.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/storage/PMHelpers.php" afterDir="false" />
+    <list default="true" id="fcce9490-198a-4c89-a232-0edc6df1d457" name="Default Changelist" comment="Fix paths and adding template support">
+      <change afterPath="$PROJECT_DIR$/app/styles/main.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/storage/ErrorNotificator.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/main/http/AuthRequestHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/main/http/AuthRequestHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/main/http/ProductRequestHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/main/http/ProductRequestHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/footer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/header.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/Source.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/Source.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/http/Response.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/http/Response.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/implementation/request/BaseRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/implementation/request/BaseRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/implementation/request/BaseRequestHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/implementation/request/BaseRequestHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/implementation/response/JsonResponse.php" beforeDir="false" afterPath="$PROJECT_DIR$/implementation/response/JsonResponse.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/implementation/response/PageResponse.php" beforeDir="false" afterPath="$PROJECT_DIR$/implementation/response/PageResponse.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/storage/PMHelpers.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/storage/PMHelpers.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +40,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -64,6 +59,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -102,7 +98,7 @@
       <workItem from="1584699545120" duration="6000" />
       <workItem from="1585392414708" duration="1047000" />
       <workItem from="1585421798288" duration="12547000" />
-      <workItem from="1600611068427" duration="38115000" />
+      <workItem from="1600611068427" duration="39467000" />
     </task>
     <task id="LOCAL-00001" summary="Big database patch">
       <created>1600634331740</created>
@@ -125,7 +121,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600897236740</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Fix paths and adding template support">
+      <created>1600903702334</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1600903702334</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -146,17 +149,18 @@
     <MESSAGE value="Big database patch" />
     <MESSAGE value="AiQuery attempt" />
     <MESSAGE value="Auth and request works, AiQuery deprecated" />
-    <option name="LAST_COMMIT_MESSAGE" value="Auth and request works, AiQuery deprecated" />
+    <MESSAGE value="Fix paths and adding template support" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix paths and adding template support" />
   </component>
   <component name="WindowStateProjectService">
     <state x="435" y="70" key="#com.intellij.ide.util.MemberChooser" timestamp="1600895818951">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
     <state x="435" y="70" key="#com.intellij.ide.util.MemberChooser/0.0.1280.720@0.0.1280.720" timestamp="1600895818951" />
-    <state x="398" y="84" key="NewPhpClassDialog" timestamp="1600891739365">
+    <state x="398" y="84" key="NewPhpClassDialog" timestamp="1600904810492">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state x="398" y="84" key="NewPhpClassDialog/0.0.1280.720@0.0.1280.720" timestamp="1600891739365" />
+    <state x="398" y="84" key="NewPhpClassDialog/0.0.1280.720@0.0.1280.720" timestamp="1600904810492" />
     <state x="477" y="284" key="NewPhpFileDialog" timestamp="1600902623088">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
@@ -165,9 +169,9 @@
       <screen x="0" y="0" width="1280" height="720" />
     </state>
     <state x="142" y="6" key="SettingsEditor/0.0.1280.720@0.0.1280.720" timestamp="1600890150401" />
-    <state x="233" y="94" key="Vcs.Push.Dialog.v2" timestamp="1600897240145">
+    <state x="233" y="94" key="Vcs.Push.Dialog.v2" timestamp="1600903703990">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state x="233" y="94" key="Vcs.Push.Dialog.v2/0.0.1280.720@0.0.1280.720" timestamp="1600897240145" />
+    <state x="233" y="94" key="Vcs.Push.Dialog.v2/0.0.1280.720@0.0.1280.720" timestamp="1600903703990" />
   </component>
 </project>
