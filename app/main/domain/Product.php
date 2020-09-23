@@ -2,7 +2,6 @@
 
 class Product {
     private $id;
-    private $table = 'products';
     private $price;
     private $name;
     private $rating;
@@ -14,10 +13,6 @@ class Product {
 
     public function getId(){
         return $this -> id;
-    }
-
-    public function getTable(){
-        return $this -> table;
     }
 
     public function getPrice(){

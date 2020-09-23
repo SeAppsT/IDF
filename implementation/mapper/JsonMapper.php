@@ -2,6 +2,16 @@
 
 class JsonMapper implements Mapper {
 
+    private string $pathToDir;
+
+    public function getPathToDir(): string{
+        return $this -> pathToDir;
+    }
+
+    public function setPathToDir(string $pathToDir): void{
+        $this -> pathToDir = $pathToDir;
+    }
+
     public function query(Query $query){
 
     }

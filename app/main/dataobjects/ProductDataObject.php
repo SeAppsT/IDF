@@ -7,7 +7,7 @@ class ProductDataObject implements DataObject {
     use Manager;
 
     private Product $product;
-    private string $xml_path = '/output/xml/productCache.xml';
+    private string $name = 'products';
 
     public function __construct(Product $product){
         $this -> product = $product;
@@ -18,9 +18,7 @@ class ProductDataObject implements DataObject {
     }
 
     public function getCredentials(){
-        return ['table' => $this -> product -> getTable(),
-                'xml_path' => $this -> xml_path,
-                'identifier' => 'id'];
+        return ['identifier' => 'id'];
     }
 
     public function getFields(){
@@ -36,5 +34,9 @@ class ProductDataObject implements DataObject {
 
     public function __toString(){
         return Product::class;
+    }
+
+    public function getName(){
+        return $this -> name;
     }
 }

@@ -1,8 +1,9 @@
 <?php
 
+
 Source::addRequestHandler(function (Request $request): Response {
     $product = new \Product();
-    $productDataObject = new \ProductDataObject();
+    $productDataObject = new \ProductDataObject($product);
     $productDataObject -> setProduct($product);
     echo 'HANDLER products';
     return new PageResponse('products.html');
@@ -12,6 +13,9 @@ Source::addRequestHandler(function (Request $request): Response {
 
 Source::addRequestHandler(function (Request $request): Response {
     echo 'HANDLER product';
+    $product = new \Product();
+    $productDataObject = new \ProductDataObject($product);
+
     return new PageResponse('add_product.html');
 })
     -> setPath('product/{id}')
@@ -31,10 +35,15 @@ Source::addRequestHandler(function (Request $request): Response{
     $productFromDB = $productDataObject -> del()
         -> where('price', bigger(400))
         -> where('rating', letter(2))
+        -> outer(
+            $productDataObject -> get()
+                -> where('price', bigger(50))
+                -> go()
+        )
         -> go();
-    $productFromDB = $productDataObject -> get()
-        -> where('price', letter(400))
-        -> go();
+
+
+
     print_r($productFromDB);
 
     return new PageResponse('page.html');

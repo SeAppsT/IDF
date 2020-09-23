@@ -19,10 +19,17 @@ class Query {
 
     public function set($field, $value){
         $this -> changes[$field] = $value;
+        return $this;
     }
 
-    public function add(Query $query, $field = 'id'){
-        $this -> subQueries[] = $query;
+    public function inner(Query $query, $field = null){
+        $this -> subQueries['inner'] = $query;
+        return $this;
+    }
+
+    public function outer(Query $query, $field = null){
+        $this -> subQueries['outer'] = $query;
+        return $this;
     }
 
     public function go($connection_name = 'main'){

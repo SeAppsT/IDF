@@ -32,14 +32,14 @@ class SqlMapper implements Mapper {
                 $partQuery['placeholders'] .= '?';
                 $values[] = $value;
 
-                if ($i != count($entity->getFields())) {
+                if ($i != count($entity -> getFields())) {
                     $partQuery['fields'] .= ', ';
                     $partQuery['placeholders'] .= ', ';
                 }
             }
             $i++;
         }
-        $query = 'INSERT INTO '.$entity -> getCredentials()['table'].' ('.$partQuery['fields'].') VALUES ('.$partQuery['placeholders'].')';
+        $query = 'INSERT INTO '.$entity -> getName().' ('.$partQuery['fields'].') VALUES ('.$partQuery['placeholders'].')';
         if (Source::$debug == true){
             $this -> showSQL(new DBDto($query, $values), 'greenyellow');
         }
@@ -62,7 +62,7 @@ class SqlMapper implements Mapper {
                 $identifier = $value;
             $i++;
         }
-        $query = 'UPDATE '.$entity -> getCredentials()['table'].' SET '.$partQuery.' WHERE '.$entity -> getCredentials()['identifier'].' = '.$identifier;
+        $query = 'UPDATE '.$entity -> getName().' SET '.$partQuery.' WHERE '.$entity -> getCredentials()['identifier'].' = '.$identifier;
         if (Source::$debug == true)
             $this -> showSQL(new DBDto($query, $values), 'yellow');
 
@@ -71,7 +71,7 @@ class SqlMapper implements Mapper {
     }
 
     public function delete(DataObject $entity){
-        $query = 'DELETE FROM '.$entity -> getCredentials()['table'].' WHERE '.$entity -> getCredentials()['identifier'].' = ?';
+        $query = 'DELETE FROM '.$entity -> getName().' WHERE '.$entity -> getCredentials()['identifier'].' = ?';
         if (Source::$debug == true)
             $this -> showSQL(new DBDto($query, [$entity -> getFields()[$entity -> getCredentials()['identifier']]]), 'red');
         $prepared = $this -> dbHandler -> prepare($query);
@@ -88,7 +88,7 @@ class SqlMapper implements Mapper {
 
     public function del(Query $query){
         $dto = $this -> scanConditions($query -> getConditions());
-        $sqlString = 'DELETE FROM '.$query -> getEntity() -> getCredentials()['table'].$dto -> query;
+        $sqlString = 'DELETE FROM '.$query -> getEntity() -> getName().$dto -> query;
         $dto -> query = $sqlString;
         if (Source::$debug == true)
             $this -> showSQL($dto, 'red');
@@ -97,7 +97,7 @@ class SqlMapper implements Mapper {
 
     public function select(Query $query){
         $dto = $this -> scanConditions($query -> getConditions());
-        $sqlString = 'SELECT * FROM '.$query -> getEntity() -> getCredentials()['table'].' '.$dto -> query;
+        $sqlString = 'SELECT * FROM '.$query -> getEntity() -> getName().' '.$dto -> query;
         $dto -> query = $sqlString;
         if (Source::$debug == true)
             $this -> showSQL($dto, 'cornflowerblue');

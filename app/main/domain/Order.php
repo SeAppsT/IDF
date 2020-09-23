@@ -1,9 +1,10 @@
 <?php
 
 
-class Order{
+class Order implements DataObject {
     private $id;
     private array $products;
+    private string $table = 'orders';
 
     public function getId(){
         return $this -> id;
@@ -19,5 +20,21 @@ class Order{
 
     public function addProductToCart(Product $product){
         $this -> products[] = $product;
+    }
+
+    public function getCredentials(){
+        return ['identifier' => 'id'];
+    }
+
+    public function getFields(){
+        return ['id' => $this -> id];
+    }
+
+    public function __toString(){
+        return Order::class;
+    }
+
+    public function getName(){
+        return $this -> table;
     }
 }

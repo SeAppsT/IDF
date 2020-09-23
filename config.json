@@ -9,6 +9,13 @@
         "password": "serg",
         "database": "79856452111"
       }
+    ],
+    "file": [
+      {
+        "type": "json",
+        "connection_name": "json_main",
+        "path": "filebase"
+      }
     ]
   }
 }
