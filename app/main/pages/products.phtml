@@ -1,0 +1,7 @@
+<? template('header.html'); ?>
+    <ul>
+        <? foreach ($products as $product): ?>
+            <li><?= $product -> getName(); ?></li>
+        <? endforeach; ?>
+    </ul>
+<? template('footer.html'); ?>

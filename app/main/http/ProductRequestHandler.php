@@ -2,11 +2,11 @@
 
 
 Source::addRequestHandler(function (Request $request): Response {
-    $product = new \Product();
-    $productDataObject = new \ProductDataObject($product);
-    $productDataObject -> setProduct($product);
-    echo 'HANDLER products';
-    return new PageResponse('products.html');
+    $productDataObject = new \ProductDataObject();
+    $products = $productDataObject -> get()
+        -> where('price', letter(400))
+        -> go();
+    return new PageResponse('main/pages/products.phtml', ['products' => $products]);
 })
     -> setPath('product');
 
@@ -41,10 +41,7 @@ Source::addRequestHandler(function (Request $request): Response{
         )
         -> go();
 
-
-
     print_r($productFromDB);
-
     return new PageResponse('page.html');
 })
     -> setPath('product/{product_id}/cart/{cart_id}');

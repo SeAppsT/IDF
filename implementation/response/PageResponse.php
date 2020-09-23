@@ -4,13 +4,13 @@ class PageResponse implements Response {
 
     private $path;
 
-    public function __construct($body){
+    public function __construct(string $body, array $args = null){
         $this -> path = $body;
-        $this -> showBody();
+        $this -> showBody($args);
     }
 
     public function addHeader($name, $value){
-        // TODO: Implement addHeader() method.
+
     }
 
     public function showBody(array $args = null){

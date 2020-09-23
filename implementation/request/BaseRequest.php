@@ -13,7 +13,7 @@ class BaseRequest implements Request {
     }
 
     public function bodyParam(string $name){
-        return file_get_contents('php://input');
+        return file_get_contents('php://input')[$name];
     }
 
     public function queryString(): array {

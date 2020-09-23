@@ -41,7 +41,7 @@ class Source{
 
     public static function build(){
 
-        foreach (glob("core{/*, /*/*, /*/*/*}/*.php", GLOB_BRACE) as $component){
+        foreach (glob("core{/*, /*/*, /*/*/*, /*/*/*/*}/*.php", GLOB_BRACE) as $component){
             require_once $component;
         }
 

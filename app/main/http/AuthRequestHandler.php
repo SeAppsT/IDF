@@ -14,8 +14,8 @@ Source::addRequestHandler(function (Request $request){
 
 Source::addRequestHandler(function (Request $request){
     if (Source::getSessionImplementation('Http') -> get('user') != null) {
-        $user = Source::getSessionImplementation('Http')->get('user');
-        $user->logout();
+        $user = Source::getSessionImplementation('Http') -> get('user');
+        $user -> logout();
     }
 }) -> setPath('auth/logout');
 
