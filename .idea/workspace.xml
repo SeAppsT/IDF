@@ -19,22 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fcce9490-198a-4c89-a232-0edc6df1d457" name="Default Changelist" comment="Fix paths and adding template support #2">
-      <change afterPath="$PROJECT_DIR$/app/main/http/FrameworkRequestHandler.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/main/pages/main.phtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/styles/containers.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/storage/BaseException.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/storage/StyleHelpers.php" afterDir="false" />
+    <list default="true" id="fcce9490-198a-4c89-a232-0edc6df1d457" name="Default Changelist" comment="Ughhhh...">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/main/dataobjects/ProductDataObject.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/main/dataobjects/ProductDataObject.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/main/dataobjects/UserDataObject.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/main/dataobjects/UserDataObject.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/main/domain/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/main/domain/Order.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/main/http/ProductRequestHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/main/http/ProductRequestHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/main/pages/products.phtml" beforeDir="false" afterPath="$PROJECT_DIR$/app/main/pages/products.phtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/styles/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/styles/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/footer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/storage/ErrorNotificator.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/storage/ErrorNotificator.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/Source.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/Source.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/storage/Query.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/storage/Query.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/storage/SubQuery.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/storage/SubQuery.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/implementation/mapper/SqlMapper.php" beforeDir="false" afterPath="$PROJECT_DIR$/implementation/mapper/SqlMapper.php" afterDir="false" />
@@ -109,7 +97,7 @@
       <workItem from="1584699545120" duration="6000" />
       <workItem from="1585392414708" duration="1047000" />
       <workItem from="1585421798288" duration="12547000" />
-      <workItem from="1600611068427" duration="62020000" />
+      <workItem from="1600611068427" duration="62711000" />
     </task>
     <task id="LOCAL-00001" summary="Big database patch">
       <created>1600634331740</created>
@@ -146,7 +134,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600904917636</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Ughhhh...">
+      <created>1600982172421</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1600982172421</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -169,13 +164,14 @@
     <MESSAGE value="Auth and request works, AiQuery deprecated" />
     <MESSAGE value="Fix paths and adding template support" />
     <MESSAGE value="Fix paths and adding template support #2" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix paths and adding template support #2" />
+    <MESSAGE value="Ughhhh..." />
+    <option name="LAST_COMMIT_MESSAGE" value="Ughhhh..." />
   </component>
   <component name="WindowStateProjectService">
-    <state x="435" y="70" key="#com.intellij.ide.util.MemberChooser" timestamp="1600981636570">
+    <state x="435" y="70" key="#com.intellij.ide.util.MemberChooser" timestamp="1600982397542">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state x="435" y="70" key="#com.intellij.ide.util.MemberChooser/0.0.1280.720@0.0.1280.720" timestamp="1600981636570" />
+    <state x="435" y="70" key="#com.intellij.ide.util.MemberChooser/0.0.1280.720@0.0.1280.720" timestamp="1600982397542" />
     <state x="398" y="84" key="NewPhpClassDialog" timestamp="1600933248825">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
@@ -188,10 +184,10 @@
       <screen x="0" y="0" width="1280" height="720" />
     </state>
     <state x="142" y="6" key="SettingsEditor/0.0.1280.720@0.0.1280.720" timestamp="1600890150401" />
-    <state x="233" y="94" key="Vcs.Push.Dialog.v2" timestamp="1600904919493">
+    <state x="233" y="94" key="Vcs.Push.Dialog.v2" timestamp="1600982174426">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state x="233" y="94" key="Vcs.Push.Dialog.v2/0.0.1280.720@0.0.1280.720" timestamp="1600904919493" />
+    <state x="233" y="94" key="Vcs.Push.Dialog.v2/0.0.1280.720@0.0.1280.720" timestamp="1600982174426" />
     <state x="297" y="161" key="run.anything.popup" timestamp="1600955232399">
       <screen x="0" y="0" width="1280" height="720" />
     </state>

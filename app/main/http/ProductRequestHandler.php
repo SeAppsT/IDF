@@ -4,7 +4,7 @@
 Source::addRequestHandler(function (Request $request): Response {
     $productDataObject = new \ProductDataObject();
     $products = $productDataObject -> get()
-        -> search('price', letter(400))
+        -> where('price', letter(400))
         -> go();
     return new PageResponse('main/pages/products.phtml', ['products' => $products]);
 })
@@ -35,9 +35,9 @@ Source::addRequestHandler(function (Request $request): Response{
     $productDO -> insert();
     $userDO = new UserDataObject();
     $DBdata = $productDO -> get()
-        -> in('product_id', $order -> one())
-        -> out('user_id', $userDO -> get())
-        -> search('status', equals('ACTIVE'))
+        -> in('user_id', $userDO -> one())
+        -> out('order', $order -> one())
+        -> search('price', letter(400))
         -> go();
     return new PageResponse('page.html');
 })

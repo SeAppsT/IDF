@@ -102,7 +102,7 @@ class SqlMapper implements Mapper {
         if (Source::$debug == true)
             $this -> showSQL($dto, 'cornflowerblue');
         $result = $this -> executeResultableQuery($query -> getEntity(), $dto);
-        if (!empty($result) && !empty($query -> getSubQueries())){
+        if (!empty($query -> getSubQueries())){
             foreach ($query -> getSubQueries() as $subQuery){
                 if ($subQuery -> getType() == 'in'){
                     $table = $subQuery -> getQuery() -> getEntity() -> getName();

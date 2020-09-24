@@ -5,7 +5,7 @@ class Query {
     private array $conditions;
     private array $changes;
     private DataObject $entity;
-    private array $subQueries = [[], []];
+    private array $subQueries = [];
     private string $connection_name;
 
     public function __construct($action, $entity){
