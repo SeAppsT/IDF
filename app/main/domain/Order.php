@@ -2,6 +2,10 @@
 
 
 class Order implements DataObject {
+
+    use BaseDataHelper;
+    use Manager;
+
     private $id;
     private array $products;
     private string $table = 'orders';

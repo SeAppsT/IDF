@@ -9,8 +9,9 @@ class UserDataObject implements DataObject {
     private User $user;
     private string $name = 'users';
 
-    public function __construct(User $user){
-        $this -> user = $user;
+    public function __construct(User $user = null){
+        if ($user != null)
+            $this -> user = $user;
     }
 
     public function getCredentials(){
@@ -33,8 +34,8 @@ class UserDataObject implements DataObject {
 
     public function isUserExists(){
         return $this -> one()
-            -> where('login', equals($this -> user -> getLogin()))
-            -> where('password', equals($this -> user -> getPassword()))
+            -> search('login', equals($this -> user -> getLogin()))
+            -> search('password', equals($this -> user -> getPassword()))
             -> go() ? true : false;
     }
 }

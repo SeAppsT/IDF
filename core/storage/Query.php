@@ -1,18 +1,19 @@
 <?php
 
 class Query {
-    private $action;
-    private $conditions;
-    private $changes;
+    private string $action;
+    private array $conditions;
+    private array $changes;
     private DataObject $entity;
-    private $subQueries = [];
+    private array $subQueries = [[], []];
+    private string $connection_name;
 
     public function __construct($action, $entity){
         $this -> action = $action;
         $this -> entity = $entity;
     }
 
-    public function where($field, array $value){
+    public function search($field, array $value){
         $this -> conditions[$field] = $value;
         return $this;
     }
@@ -22,18 +23,19 @@ class Query {
         return $this;
     }
 
-    public function inner(Query $query, $field = null){
-        $this -> subQueries['inner'] = $query;
+    public function in(string $field, Query $query){
+        $this -> subQueries[] = new SubQuery($query, 'in', $field);
         return $this;
     }
 
-    public function outer(Query $query, $field = null){
-        $this -> subQueries['outer'] = $query;
+    public function out(string $field, Query $query){
+        $this -> subQueries[] = new SubQuery($query, 'out', $field);
         return $this;
     }
 
     public function go($connection_name = 'main'){
-        return Source::getConnection($connection_name) -> query($this);
+        $this -> connection_name = $connection_name;
+        return Source::getConnection($this -> connection_name) -> query($this);
     }
 
     public function getAction(){
@@ -54,5 +56,9 @@ class Query {
 
     public function getSubQueries(): array{
         return $this->subQueries;
+    }
+
+    public function getConnectionName(): string{
+        return $this -> connection_name;
     }
 }

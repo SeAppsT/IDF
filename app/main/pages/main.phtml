@@ -1,0 +1,183 @@
+<? template('header.html'); ?>
+
+<h1>Shopin framework</h1>
+<h3>Not for work. For enjoy!</h3>
+
+<div class="text">
+    <p class="preview">
+        Этот фреймворк не был создан для решения каких-то конкретных проблем.
+        Поэтому, если вам нужны технические гарантии - их не будет. Забудьте.
+        Вообще, на время посещения этого сайта, забудьте технические термины
+        и сохраните в памяти только те, что относятся к высокоуровнему проектированию на абстракциях.
+        Дело в том, что это скорее искусство, нежели инструмент. Я постарался сделать его красивым... а остальное меня мало волнует.
+        Я не использовал в нем composer и сторонние библиотеки, вроде twig, потому что главное тут - свобода от технарства. Для запуска нужно сделать всего два действия: скачать и загрузить на хостинг. Все.
+    </p>
+    <h3 class="preview">Если вы еще тут - давайте начнем!</h3>
+
+    <p class="preview">
+        Для начала, включите прекрасную музыку Шопена <a href="https://www.youtube.com/watch?v=p29JUpsOSTE" target="_blank">тут</a>. Итак... вот философия:<br />
+    </p>
+    <h2 class="preview">Его величество Домен</h2>
+    <p class="preview">
+        Все художники пытаются следовать best practises, и я - не исключение. В данном случае, я взял за основу принцип DDD. Во всяком случае, как я его вижу.
+        Это значит, что:
+    </p>
+    <ul>
+        <li>Все - ВСЕ - должно зависить от домена.</li>
+        <li>Вся бизнес-логика содержится в доменных моделях. Никаких сервисных классов (брр..), структур только для трансфера (dto) (бррр..) и прочей ереси. Вспомните hibernate... и забудьте как страшный сон, я тоже его не люблю.</li>
+        <li>Домена не особо волнует способ хранения.. как и меня. Будь это sql, nosql, файл json, xml - нам это не важно, предлагаю оставить эту проблему технарям и просто писать чистую бизнес-логику. И я реализовал это! Код будет одним и тем же, абсолютно.</li>
+        <li>Я уважаю ООП и поэтому использую его только там, где он нужен (ну почти). И если использую, то использую правильно. Конкретно, у меня нет классов-контроллеров - зачем, право. Зато есть трейты и замыкания - это хорошие возможности php.</li>
+        <li>Домен никто не посмеет стеснять - он такой, как Ему угодно. Выбор архитектуры домена - за вами. Все, что лежит в папках /domain (или назвать можно как угодно) - обычные php классы, делайте с ними что хотите. Никаких обязательств.</li>
+    </ul>
+    <p>
+        <span style="color: greenyellow;">И самое главное</span>: фреймворк ведет себя по Вашим правилам. Что это значит?
+        Идея в том, что весь фреймворк - это набор интерфейсов, а реализации для них можно поставлять любые. Mapper, Response, Request, Session - фреймворк это всего лишь черный ящик, а правила работы конкретных методов можно поставить ваши собственные - просто имплементировать нужный интерфейс, зарегистрировать свою реализацию в контейнере и использовать.
+    </p>
+    <div class="code">
+        <pre>
+
+            Source::addMapperImplementation(SqlMapper::class);
+            //
+            Source::getMapperImplementation('Sql');
+        </pre>
+    </div>
+    <p>
+        So, так давайте посмотрим на это!
+    </p>
+    <div class="code">
+        Домен
+        <pre>
+
+        class Product {
+            private $price;
+            private $name;
+            private $rating;
+
+            public function addToCart(Order $order){
+                $order -> addProductToCart($this);
+            }
+        }
+        </pre>
+    </div>
+    <p>
+        А тут домену надо иметь связь с базой:
+    </p>
+    <div class="code">
+        Класс-посредник
+        <pre>
+
+        class ProductDataObject implements DataObject {
+
+            use BaseDataHelper;
+            use Manager;
+
+            private Product $product;
+            private string $name = 'products';
+
+            public function __construct(Product $product = null){
+                if ($product != null)
+                    $this -> product = $product;
+            }
+
+            public function getCredentials(){
+                return ['identifier' => 'id'];
+            }
+
+            public function getFields(){
+                return ['id' => $this -> product -> getId(),
+                        'name' => $this -> product -> getName(),
+                        'price' => $this -> product -> getPrice(),
+                        'rating' => $this -> product -> getRating()];
+            }
+
+            public function __toString(){
+                return Product::class;
+            }
+
+            public function getName(){
+                return $this -> name;
+            }
+        }
+        </pre>
+    </div>
+    <p>
+        Воу, воу! Это уже не домен, так что будьте добры имплементировать интерфейс DataObject. Вот он:
+    </p>
+    <div class="code">
+        DataObject
+        <pre>
+        interface DataObject{
+            public function getCredentials();
+            public function getFields();
+            public function __toString();
+            public function getName();
+        }
+        </pre>
+    </div>
+    <p>
+        Кстати, его можно имплементировать и на домене. Тогда ваш (наш (мой)) DataMapper превратится в ActiveRecord. Не все ли равно? Но так структурированнее.
+        Трейт BaseDataHelper - просто помощник, его можно и не включать.
+
+        <?= br(2) ?>
+
+        DataObject-ы можно использовать как репо: писать туда методы работы с базой:
+    </p>
+    <div class="code">
+        ProductDataObject
+        <pre>
+            public function getByName($name){
+                return $this -> get() -> where('name', $name) -> go();
+            }
+        </pre>
+    </div>
+    <p>
+        Но тут возникает вопрос: где лучше их писать, в домене или в классе работы с базой - и как понять ту грань, которая отделяет бизнес-логику от абстракции БД?
+        <?= br(1) ?>
+        И тут моя первая <span style="color: greenyellow">BP</span>: из домена не должно быть прямого обращения к ORM. Если оно есть - метод нужно вынести на уровень класса-посредника.
+        <?= br(2) ?>
+
+        Но идем дальше: допустим, нам надо вынести все это в web:
+    </p>
+
+    <div class="code">
+        ProductRequestHandler
+        <pre>
+            Source::addRequestHandler(function (Request $request): Response{
+                $product = new Product();
+                $product -> setId($request -> pathVariable('product_id'));
+
+                $order = new Order();
+                $order -> setId($request -> pathVariable('cart_id'));
+                $order -> addProductToCart($product);
+                $product -> setName("Product from fwk");
+                $product -> setPrice(null);
+                $product -> setRating(5);
+
+                $productDO = new ProductDataObject($product);
+                $productDO -> insert();
+                return new PageResponse('page.html');
+            })
+                -> setPath('product/{product_id}/cart/{cart_id}');
+        </pre>
+    </div>
+    <p>
+        Рассмотрите повнимательнее.
+        Тут, как я говорил, нету классов - по сути, используется всего один вызов абстрактного метода.
+        Вот и весь обработчик. Он имплементирует интерфейс RequestHandler - который вы тоже можете переопределить.
+        Вот он:
+    </p>
+    <div class="code">
+        RequestHandler
+        <pre>
+            interface RequestHandler {
+                public function setPath($path): RequestHandler;
+                public function __construct();
+                public function setAction(Closure $action);
+                public function addMethod($method): RequestHandler;
+                public function isItOk(array $queryString): bool;
+                public function getVars(): array;
+            }
+        </pre>
+    </div>
+</div>
+<? template('footer.html'); ?>

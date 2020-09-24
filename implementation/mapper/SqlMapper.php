@@ -101,7 +101,39 @@ class SqlMapper implements Mapper {
         $dto -> query = $sqlString;
         if (Source::$debug == true)
             $this -> showSQL($dto, 'cornflowerblue');
-        return $this -> executeResultableQuery($query -> getEntity(), $dto);
+        $result = $this -> executeResultableQuery($query -> getEntity(), $dto);
+        if (!empty($result) && !empty($query -> getSubQueries())){
+            foreach ($query -> getSubQueries() as $subQuery){
+                if ($subQuery -> getType() == 'in'){
+                    $table = $subQuery -> getQuery() -> getEntity() -> getName();
+                    $resField = $query -> getEntity() -> getCredentials()['identifier'];
+                    if (is_array($result)){
+                        foreach ($result as $item){
+                            $cloned = clone $subQuery -> getQuery();
+                            $item -> $table = $cloned -> search($subQuery -> getField(), equals($result -> $resField)) -> go($query -> getConnectionName());
+                        }
+                    } else{
+                        $cloned = clone $subQuery -> getQuery();
+                        $result -> $table = $cloned -> search($subQuery -> getField(), equals($result -> $resField)) -> go($query -> getConnectionName());
+                    }
+                }
+
+                if ($subQuery -> getType() == 'out'){
+                    $resField = $query -> getEntity() -> getCredentials()['identifier'];
+                    $currField = $subQuery -> getField();
+                    if (is_array($result)){
+                        foreach ($result as $item){
+                            $cloned = clone $subQuery -> getQuery();
+                            $item -> $currField = $cloned -> search($resField, equals($result -> $currField)) -> go($query -> getConnectionName());
+                        }
+                    } else{
+                        $cloned = clone $subQuery -> getQuery();
+                        $result -> $currField = $cloned -> search($resField, equals($result -> $currField)) -> go($query -> getConnectionName());
+                    }
+                }
+            }
+        }
+        return $result;
     }
 
     public function scanConditions(array $conditions): DBDto{

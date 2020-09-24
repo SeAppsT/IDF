@@ -1,7 +1,7 @@
 <? template('header.html'); ?>
-    <ul>
+    <ul class="flex">
         <? foreach ($products as $product): ?>
-            <li><?= $product -> getName(); ?></li>
+            <li class="block item"><?= $product -> getName(); ?></li>
         <? endforeach; ?>
     </ul>
 <? template('footer.html'); ?>

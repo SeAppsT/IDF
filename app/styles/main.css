@@ -1,4 +1,83 @@
 *{
-    background-color: red;
-    color: red;
+    margin: 0;
+    padding: 0;
+    font-family: "Century Gothic", sans-serif;
+}
+
+header{
+    background-color: #303030;
+    height: 20px;
+}
+
+.item {
+    width: 250px;
+    height: 250px;
+    background-color: black;
+    margin: 20px;
+    color: aliceblue;
+    text-align: center;
+    line-height: 250px;
+    background-image: url('https://avatars.mds.yandex.net/get-zen_doc/1875160/pub_5db522353f548700b0107579_5db528d6df944400b0565d62/scale_1200');
+    background-size: cover;
+    transition: 0.2s;
+}
+
+.item:hover{
+    background-color: aliceblue;
+    background-image: none;
+    color: black;
+}
+
+h1, h2, h3{
+    color: gray;
+    font-weight: normal;
+    text-align: center;
+    margin: 20px;
+    transition: 0.2s;
+}
+
+h1:hover, h2:hover, h3:hover{
+    color: #505050;
+}
+
+.text {
+    margin: 20px;
+    font-size: 110%;
+    text-align: justify;
+    line-height: 25px;
+}
+
+.preview {
+    margin-top: 80px;
+}
+
+ul{
+    display: block;
+    margin: 50px;
+}
+
+li{
+    margin: 15px;
+}
+
+a{
+    color: gray;
+}
+
+.code{
+    margin: 20px;
+    padding: 10px;
+    background-color: #303030;
+    border-radius: 5px;
+    color: greenyellow;
+}
+
+.code > pre{
+    color: aliceblue;
+}
+
+footer{
+    height: 250px;
+    border-top: 20px solid #303030;
+    background-position: center;
 }

@@ -30,7 +30,7 @@ class ProductDataObject implements DataObject {
     }
 
     public function getByName($name){
-        return $this -> get() -> where('name', $name) -> go();
+        return $this -> get() -> search('name', equals($name)) -> go();
     }
 
     public function __toString(){

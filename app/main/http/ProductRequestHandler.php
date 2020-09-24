@@ -4,11 +4,11 @@
 Source::addRequestHandler(function (Request $request): Response {
     $productDataObject = new \ProductDataObject();
     $products = $productDataObject -> get()
-        -> where('price', letter(400))
+        -> search('price', letter(400))
         -> go();
     return new PageResponse('main/pages/products.phtml', ['products' => $products]);
 })
-    -> setPath('product');
+    -> setPath('product/');
 
 
 Source::addRequestHandler(function (Request $request): Response {
@@ -31,17 +31,14 @@ Source::addRequestHandler(function (Request $request): Response{
     $product -> setName("Product from fwk");
     $product -> setPrice(null);
     $product -> setRating(5);
-    $productDataObject = new ProductDataObject($product);
-    $productFromDB = $productDataObject -> del()
-        -> where('price', bigger(400))
-        -> where('rating', letter(2))
-        -> outer(
-            $productDataObject -> get()
-                -> where('price', bigger(50))
-        )
+    $productDO = new ProductDataObject($product);
+    $productDO -> insert();
+    $userDO = new UserDataObject();
+    $DBdata = $productDO -> get()
+        -> in('product_id', $order -> one())
+        -> out('user_id', $userDO -> get())
+        -> search('status', equals('ACTIVE'))
         -> go();
-
-    print_r($productFromDB);
     return new PageResponse('page.html');
 })
     -> setPath('product/{product_id}/cart/{cart_id}');
