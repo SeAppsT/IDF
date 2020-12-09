@@ -41,4 +41,14 @@ class Order implements DataObject {
     public function getName(){
         return $this -> table;
     }
+
+    function setDomain($domain)
+    {
+        // TODO: Implement setDomain() method.
+    }
+
+    function getDomain()
+    {
+        // TODO: Implement getDomain() method.
+    }
 }

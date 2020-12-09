@@ -2,14 +2,15 @@
 
 
 
-class Source{
+class Shopin{
 
     private static array $connections = Array();
     private static array $paths = Array();
     private static array $implementations = Array(
         'mappers' => [],
     );
-    public static bool $debug = true;
+    public static bool $debug = false;
+    private static array $restApis = Array();
 
     public static function configure($path, $method = 'json'){
         $config_info = file_get_contents($path);
@@ -22,14 +23,14 @@ class Source{
         foreach ($config_info -> connections -> sql as $db_connection){
             if ($db_connection -> type == 'mysql') {
                 $pdo = new PDO($db_connection -> type.':host=' .$db_connection -> hostname.';dbname='.$db_connection -> database, $db_connection -> username, $db_connection -> password);
-                self::$connections[$db_connection -> connection_name] = Source::getMapperImplementation('Sql');
+                self::$connections[$db_connection -> connection_name] = Shopin::getMapperImplementation('Sql');
                 self::$connections[$db_connection -> connection_name] -> setDbHandler($pdo);
             }
         }
     }
 
     public static function addRequestHandler(Closure $action): RequestHandler {
-        $requestHandler = Source::getRequestHandlerImplementation('Base');
+        $requestHandler = Shopin::getRequestHandlerImplementation('Base');
         $requestHandler -> setAction($action);
         self::$paths[] = $requestHandler;
         return self::$paths[count(self::$paths) - 1];
@@ -74,6 +75,10 @@ class Source{
         self::$implementations['request_handlers'][explode('RequestHandler', $name)[0]] = $name;
     }
 
+    public static function addRestApiImplementation($name){
+        self::$implementations['restapis'][explode('RestApi', $name)[0]] = $name;
+    }
+
     public static function getSessionImplementation($type): Session{
         return new self::$implementations['sessions'][$type];
     }
@@ -83,11 +88,21 @@ class Source{
     }
 
     public static function start(Request $request){
+        session_start();
         foreach (self::$paths as $requestHandler){
             if ($requestHandler -> isItOk($request -> queryString())) {
                 $request -> collectInformation($requestHandler);
                 $requestHandler -> action -> call($request, $request);
             }
         }
+    }
+
+    public static function addRestApi(RestApi $restApi){
+        self::$restApis[$restApi -> getContextPath()] = $restApi;
+        self::$restApis[$restApi -> getContextPath()] -> addAllHandlers();
+    }
+
+    public static function getRestApi(string $contextPath){
+        return self::$restApis[$contextPath];
     }
 }

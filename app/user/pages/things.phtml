@@ -1,0 +1,25 @@
+<? template('header.html'); ?>
+    <div style="margin: 20px">
+        <a href="/thing/create/" class="ui green button">Create!</a>
+    </div>
+    <div class="ui cards" style="justify-content: center">
+        <? foreach ($things as $thing): ?>
+        <div class="card">
+            <div class="content">
+                <div class="header">
+                    <?= $thing -> name ?>
+                </div>
+                <div class="description">
+                    <?= $thing -> description ?>
+                </div>
+            </div>
+            <div class="extra content">
+                <div class="ui two buttons">
+                    <div class="ui inverted <?= $thing -> colour ?> button">Tab</div>
+                </div>
+            </div>
+        </div>
+        <? endforeach; ?>
+    </div>
+
+<? template('footer.html'); ?>

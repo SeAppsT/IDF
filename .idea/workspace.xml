@@ -19,18 +19,61 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fcce9490-198a-4c89-a232-0edc6df1d457" name="Default Changelist" comment="Ughhhh...">
+    <list default="true" id="fcce9490-198a-4c89-a232-0edc6df1d457" name="Default Changelist" comment="Ughhhh... (#2)">
+      <change afterPath="$PROJECT_DIR$/app/rest/http/RestRequestHandler.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/templates/framework/footer.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/templates/framework/header.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/templates/success.phtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/user/domain/Event.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/user/domain/Thing.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/user/http/ThingRequestHandler.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/user/http/UserRequestHandler.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/user/pages/login.phtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/user/pages/modify_thing.phtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/user/pages/register.phtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/user/pages/things.phtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/user/pages/users.phtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/http/RestApi.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/storage/Model.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/implementation/response/RedirectResponse.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/implementation/restapi/ArgsFinder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/implementation/restapi/BaseRestApi.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/main/dataobjects/ProductDataObject.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/main/dataobjects/ProductDataObject.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/main/dataobjects/UserDataObject.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/user/dataobjects/UserDataObject.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/main/domain/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/main/domain/Order.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/main/domain/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/user/domain/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/main/http/AuthRequestHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/user/http/AuthRequestHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/main/http/FrameworkRequestHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/main/http/FrameworkRequestHandler.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/main/http/ProductRequestHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/main/http/ProductRequestHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/Source.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/Source.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/main/pages/main.phtml" beforeDir="false" afterPath="$PROJECT_DIR$/app/main/pages/main.phtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/error.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/error.phtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/footer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/success.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/Source.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/Shopin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/http/Request.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/http/Request.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/http/Response.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/http/Response.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/storage/BaseDataHelper.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/storage/BaseDataHelper.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/storage/DBDto.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/storage/DBDto.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/storage/DataObject.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/storage/DataObject.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/storage/Query.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/storage/Query.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/storage/SubQuery.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/storage/SubQuery.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/implementation/mapper/SqlMapper.php" beforeDir="false" afterPath="$PROJECT_DIR$/implementation/mapper/SqlMapper.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/implementation/request/BaseRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/implementation/request/BaseRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/implementation/request/BaseRequestHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/implementation/request/BaseRequestHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/implementation/response/JsonResponse.php" beforeDir="false" afterPath="$PROJECT_DIR$/implementation/response/JsonResponse.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/implementation/response/PageResponse.php" beforeDir="false" afterPath="$PROJECT_DIR$/implementation/response/PageResponse.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
   </component>
   <component name="ComposerSettings">
     <execution />
@@ -38,13 +81,16 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="CSS File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
   </component>
   <component name="ProjectId" id="1XkRDpvmakEx0ZG1HAFnHZOAqg5" />
   <component name="ProjectViewState">
@@ -57,6 +103,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -71,9 +118,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\slitvinov\PhpstormProjects\IDF\core\storage" />
-      <recent name="C:\Users\slitvinov\PhpstormProjects\IDF\core\storage\helpers" />
-      <recent name="C:\Users\slitvinov\PhpstormProjects\IDF\app\main\pages" />
+      <recent name="C:\Users\slitvinov\PhpstormProjects\IDF\implementation\restapi" />
+      <recent name="C:\Users\slitvinov\PhpstormProjects\IDF\core\http" />
+      <recent name="C:\Users\slitvinov\PhpstormProjects\IDF\app\rest\http" />
+      <recent name="C:\Users\slitvinov\PhpstormProjects\IDF\app\user\http" />
+      <recent name="C:\Users\slitvinov\PhpstormProjects\IDF\app\user\domain" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -97,7 +146,11 @@
       <workItem from="1584699545120" duration="6000" />
       <workItem from="1585392414708" duration="1047000" />
       <workItem from="1585421798288" duration="12547000" />
-      <workItem from="1600611068427" duration="62711000" />
+      <workItem from="1600611068427" duration="62773000" />
+      <workItem from="1602264420273" duration="103000" />
+      <workItem from="1602800624635" duration="24000" />
+      <workItem from="1604005607445" duration="46056000" />
+      <workItem from="1604936355673" duration="23924000" />
     </task>
     <task id="LOCAL-00001" summary="Big database patch">
       <created>1600634331740</created>
@@ -141,7 +194,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600982172421</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Ughhhh... (#2)">
+      <created>1600982840594</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1600982840594</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -157,6 +217,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Big database patch" />
@@ -165,29 +226,38 @@
     <MESSAGE value="Fix paths and adding template support" />
     <MESSAGE value="Fix paths and adding template support #2" />
     <MESSAGE value="Ughhhh..." />
-    <option name="LAST_COMMIT_MESSAGE" value="Ughhhh..." />
+    <MESSAGE value="Ughhhh... (#2)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ughhhh... (#2)" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="435" y="70" key="#com.intellij.ide.util.MemberChooser" timestamp="1600982397542">
+    <state x="231" y="31" key="#com.intellij.ide.util.MemberChooser" timestamp="1605120368976">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state x="435" y="70" key="#com.intellij.ide.util.MemberChooser/0.0.1280.720@0.0.1280.720" timestamp="1600982397542" />
-    <state x="398" y="84" key="NewPhpClassDialog" timestamp="1600933248825">
+    <state x="231" y="31" key="#com.intellij.ide.util.MemberChooser/0.0.1280.720@0.0.1280.720" timestamp="1605120368976" />
+    <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1605132496598">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state x="398" y="84" key="NewPhpClassDialog/0.0.1280.720@0.0.1280.720" timestamp="1600933248825" />
-    <state x="477" y="284" key="NewPhpFileDialog" timestamp="1600949097701">
+    <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1280.720@0.0.1280.720" timestamp="1605132496598" />
+    <state x="398" y="84" key="NewPhpClassDialog" timestamp="1605133820300">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state x="477" y="284" key="NewPhpFileDialog/0.0.1280.720@0.0.1280.720" timestamp="1600949097701" />
+    <state x="398" y="84" key="NewPhpClassDialog/0.0.1280.720@0.0.1280.720" timestamp="1605133820300" />
+    <state x="477" y="284" key="NewPhpFileDialog" timestamp="1604937239505">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state x="477" y="284" key="NewPhpFileDialog/0.0.1280.720@0.0.1280.720" timestamp="1604937239505" />
     <state x="142" y="6" key="SettingsEditor" timestamp="1600890150401">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
     <state x="142" y="6" key="SettingsEditor/0.0.1280.720@0.0.1280.720" timestamp="1600890150401" />
-    <state x="233" y="94" key="Vcs.Push.Dialog.v2" timestamp="1600982174426">
+    <state x="233" y="94" key="Vcs.Push.Dialog.v2" timestamp="1600982841919">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state x="233" y="94" key="Vcs.Push.Dialog.v2/0.0.1280.720@0.0.1280.720" timestamp="1600982174426" />
+    <state x="233" y="94" key="Vcs.Push.Dialog.v2/0.0.1280.720@0.0.1280.720" timestamp="1600982841919" />
+    <state x="93" y="93" width="1095" height="535" key="dock-window-1" timestamp="1604306170614">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state x="93" y="93" width="1095" height="535" key="dock-window-1/0.0.1280.720@0.0.1280.720" timestamp="1604306170614" />
     <state x="297" y="161" key="run.anything.popup" timestamp="1600955232399">
       <screen x="0" y="0" width="1280" height="720" />
     </state>

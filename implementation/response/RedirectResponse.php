@@ -1,12 +1,13 @@
 <?php
 
-class PageResponse implements Response {
 
-    private $path;
+class RedirectResponse implements Response {
+
+    private string $path;
 
     public function __construct($body, array $args = null){
         $this -> path = $body;
-        $this -> showBody($args);
+        $this -> showBody();
     }
 
     public function addHeader($name, $value){
@@ -14,8 +15,6 @@ class PageResponse implements Response {
     }
 
     public function showBody(array $args = null){
-        if ($args != null)
-            extract($args);
-        require_once 'app/'.$this -> path;
+        header('Location: '.$this -> path);
     }
 }

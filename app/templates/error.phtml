@@ -1,0 +1,19 @@
+<? template('header.html'); ?>
+<div style="display: flex; flex-direction: row; justify-content: center">
+    <div class="ui segment card" style="width: 40%;">
+        <div class="content">
+            <div class="ui massive label red" style="margin-bottom: 20px;">
+                <?= $code ?>
+            </div>
+            <div class="header">
+                <?= $description; ?>
+            </div>
+        </div>
+        <div class="extra content">
+            <div class="ui two buttons">
+                <a class="ui basic green button" href="<?= $link; ?>">Вернуться</a>
+            </div>
+        </div>
+    </div>
+</div>
+<? template('footer.html'); ?>

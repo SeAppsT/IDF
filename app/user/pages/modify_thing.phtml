@@ -1,0 +1,28 @@
+<? template('header.html'); ?>
+
+    <script type="text/javascript">
+        $(".dropdown").dropdown();
+    </script>
+<div style="display: flex; justify-content: center">
+    <form class="ui form segment" style="width: 60%" action="/thing/create/" method="post">
+        <h2>Create new thing</h2>
+        <div class="ui input field" style="width: 100%">
+            <input type="text" name="name" placeholder="Name">
+        </div>
+        <div class="ui input field" style="width: 100%">
+            <textarea name="description" placeholder="Description"></textarea>
+        </div>
+        <div class="field">
+            <label>Colour</label>
+            <select name="colour" class="ui search dropdown">
+                <option class="red" value="green">Green</option>
+                <option value="red">Red</option>
+                <option value="violet">Violet</option>
+                <option value="black">Black</option>
+                <option value="white">White</option>
+            </select>
+        </div>
+        <input type="submit" class="ui inverted green button" value="Создать"/>
+    </form>
+</div>
+<? template('footer.html'); ?>

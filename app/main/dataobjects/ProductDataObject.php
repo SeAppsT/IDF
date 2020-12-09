@@ -40,4 +40,12 @@ class ProductDataObject implements DataObject {
     public function getName(){
         return $this -> name;
     }
+
+    function setDomain($domain){
+        $this -> product = $domain;
+    }
+
+    function getDomain(){
+        return $this -> product;
+    }
 }

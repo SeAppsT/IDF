@@ -37,9 +37,10 @@ class BaseRequestHandler implements RequestHandler {
     public function isItOk(array $queryString): bool {
         $result = Array();
         $i = 0;
+
         if (count($queryString) != count($this -> path))
             return false;
-        while ($queryString[$i] != '' && $this -> path[$i] != ''){
+        while ($queryString[$i] != null && $this -> path[$i] != null){
             if ($this -> path[$i] == $queryString[$i] || preg_match('/{/ui', $this -> path[$i])){
                 $result[] = true;
                 foreach ($this -> vars as $key => $value) {

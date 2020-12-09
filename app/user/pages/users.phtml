@@ -1,0 +1,22 @@
+<? template('header.html'); ?>
+
+    <table class="ui celled table">
+        <thead>
+        <tr><th>Login</th>
+            <th>Password</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr></thead>
+        <tbody>
+        <? foreach ($users as $user): ?>
+            <tr>
+                <td data-label="Login"><?= $user -> login ?></td>
+                <td data-label="Password"><?= $user -> password ?></td>
+                <td data-label="Status"><?= $user -> status ?></td>
+                <td data-label="Action"><a href="/user/<?= $user -> id ?>/delete/" class="ui red tag label">Удалить</a></td>
+            </tr>
+        <? endforeach; ?>
+        </tbody>
+    </table>
+
+<? template('footer.html'); ?>

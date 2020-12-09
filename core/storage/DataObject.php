@@ -2,8 +2,10 @@
 
 
 interface DataObject{
-    public function getCredentials();
-    public function getFields();
-    public function __toString();
-    public function getName();
+    function getCredentials();
+    function getFields();
+    function __toString();
+    function getName();
+    function setDomain($domain);
+    function getDomain();
 }

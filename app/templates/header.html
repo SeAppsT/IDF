@@ -2,13 +2,36 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Красота спасет мир</title>
-    <link rel="stylesheet" href="app/styles/main.css">
-    <link rel="stylesheet" href="app/styles/containers.css">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <script
+            src="https://code.jquery.com/jquery-3.5.1.js"
+            integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
 </head>
 <body>
-    <header>
-        <nav>
+    <div class="ui container">
+        <div class="ui secondary pointing menu">
+            <a class="<? if ($_GET['url'] == 'users/') echo 'active'; ?> item" href="/users/">
+                Users
+            </a>
+            <a class="<? if ($_GET['url'] == 'things/') echo 'active'; ?> item" href="/things/">
+                Things
+            </a>
 
-        </nav>
-    </header>
+            <div class="right menu">
+                <? if ($_SESSION['user'] != null): ?>
+                    <a class="ui item" style="cursor: auto">
+                        <?= $_SESSION['user'] -> login ?>
+                    </a>
+                <? else: ?>
+                <a class="<? if ($_GET['url'] == 'auth/login/') echo 'active'; ?> ui item" href="/auth/login/">
+                    Login
+                </a>
+                <? endif; ?>
+                <a class="<? if ($_GET['url'] == 'auth/register/') echo 'active'; ?> ui item" href="/auth/register/">
+                    Register
+                </a>
+            </div>
+        </div>

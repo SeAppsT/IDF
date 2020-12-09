@@ -1,7 +1,7 @@
 <?php
 
 
-Source::addRequestHandler(function (Request $request): Response {
+Shopin::addRequestHandler(function (Request $request): Response {
     $productDataObject = new \ProductDataObject();
     $products = $productDataObject -> get()
         -> where('price', letter(400))
@@ -11,18 +11,18 @@ Source::addRequestHandler(function (Request $request): Response {
     -> setPath('product/');
 
 
-Source::addRequestHandler(function (Request $request): Response {
+Shopin::addRequestHandler(function (Request $request): Response {
     echo 'HANDLER product';
     $product = new \Product();
     $productDataObject = new \ProductDataObject($product);
 
     return new PageResponse('add_product.html');
 })
-    -> setPath('product/{id}')
+    -> setPath('product/{id}/')
     -> addMethod('GET');
 
 
-Source::addRequestHandler(function (Request $request): Response{
+Shopin::addRequestHandler(function (Request $request): Response{
     $product = new Product();
     $product -> setId($request -> pathVariable('product_id'));
     $order = new Order();
@@ -41,4 +41,4 @@ Source::addRequestHandler(function (Request $request): Response{
         -> go();
     return new PageResponse('page.html');
 })
-    -> setPath('product/{product_id}/cart/{cart_id}');
+    -> setPath('product/{product_id}/cart/{cart_id}/');

@@ -1,13 +1,13 @@
 <?php
-require 'core/Source.php';
+require 'core/Shopin.php';
 
-Source::addMapperImplementation(SqlMapper::class);
-Source::addMapperImplementation(JsonMapper::class);
-Source::addRequestHandlerImplementation(BaseRequestHandler::class);
-Source::addSessionImplementation(HttpSession::class);
+Shopin::addMapperImplementation(SqlMapper::class);
+Shopin::addMapperImplementation(JsonMapper::class);
+Shopin::addRequestHandlerImplementation(BaseRequestHandler::class);
+Shopin::addSessionImplementation(HttpSession::class);
 // register implementations
 
-Source::build(); // load classes
-Source::configure('config.json'); // configure from file
+Shopin::build(); // load classes
+Shopin::configure('config.json'); // configure from file
 
-Source::start(new BaseRequest()); // start with specified request class
+Shopin::start(new BaseRequest()); // start with specified request class

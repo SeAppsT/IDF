@@ -2,7 +2,7 @@
 
 class Query {
     private string $action;
-    private array $conditions;
+    private array $conditions = [];
     private array $changes;
     private DataObject $entity;
     private array $subQueries = [];
@@ -35,7 +35,7 @@ class Query {
 
     public function go($connection_name = 'main'){
         $this -> connection_name = $connection_name;
-        return Source::getConnection($this -> connection_name) -> query($this);
+        return Shopin::getConnection($this -> connection_name) -> query($this);
     }
 
     public function getAction(){

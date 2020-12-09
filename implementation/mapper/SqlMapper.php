@@ -27,6 +27,8 @@ class SqlMapper implements Mapper {
         $partQuery['placeholders'] = '';
         $values = Array();
         foreach ($entity -> getFields() as $field => $value){
+            if ($field instanceof DataObject)
+                $this -> save($field);
             if ($field != $entity -> getCredentials()['identifier'] && $value != null) {
                 $partQuery['fields'] .= $field;
                 $partQuery['placeholders'] .= '?';
@@ -40,11 +42,21 @@ class SqlMapper implements Mapper {
             $i++;
         }
         $query = 'INSERT INTO '.$entity -> getName().' ('.$partQuery['fields'].') VALUES ('.$partQuery['placeholders'].')';
-        if (Source::$debug == true){
+        if (Shopin::$debug == true){
             $this -> showSQL(new DBDto($query, $values), 'greenyellow');
         }
         $prepared = $this -> dbHandler -> prepare($query);
         $prepared -> execute($values);
+    }
+
+    public function save(DataObject $dataObject){
+        $id = $dataObject -> getFields()[$dataObject -> getCredentials()['identifier']];
+        $query = new Query('get', $dataObject);
+        $query -> search($dataObject -> getCredentials()['identifier'], equals($id));
+        if ($this -> select($query) == null)
+            $this -> insert($dataObject);
+        else
+            $this -> update($dataObject);
     }
 
     public function update(DataObject $entity){
@@ -63,7 +75,7 @@ class SqlMapper implements Mapper {
             $i++;
         }
         $query = 'UPDATE '.$entity -> getName().' SET '.$partQuery.' WHERE '.$entity -> getCredentials()['identifier'].' = '.$identifier;
-        if (Source::$debug == true)
+        if (Shopin::$debug == true)
             $this -> showSQL(new DBDto($query, $values), 'yellow');
 
         $prepared = $this -> dbHandler -> prepare($query);
@@ -72,7 +84,7 @@ class SqlMapper implements Mapper {
 
     public function delete(DataObject $entity){
         $query = 'DELETE FROM '.$entity -> getName().' WHERE '.$entity -> getCredentials()['identifier'].' = ?';
-        if (Source::$debug == true)
+        if (Shopin::$debug == true)
             $this -> showSQL(new DBDto($query, [$entity -> getFields()[$entity -> getCredentials()['identifier']]]), 'red');
         $prepared = $this -> dbHandler -> prepare($query);
         $prepared -> execute([$entity -> getFields()[$entity -> getCredentials()['identifier']]]);
@@ -90,18 +102,19 @@ class SqlMapper implements Mapper {
         $dto = $this -> scanConditions($query -> getConditions());
         $sqlString = 'DELETE FROM '.$query -> getEntity() -> getName().$dto -> query;
         $dto -> query = $sqlString;
-        if (Source::$debug == true)
+        if (Shopin::$debug == true)
             $this -> showSQL($dto, 'red');
-        print_r($sqlString);
+        $prepared = $this -> dbHandler -> prepare($dto -> query);
+        $prepared -> execute($dto -> params);
     }
 
     public function select(Query $query){
         $dto = $this -> scanConditions($query -> getConditions());
         $sqlString = 'SELECT * FROM '.$query -> getEntity() -> getName().' '.$dto -> query;
         $dto -> query = $sqlString;
-        if (Source::$debug == true)
+        if (Shopin::$debug == true)
             $this -> showSQL($dto, 'cornflowerblue');
-        $result = $this -> executeResultableQuery($query -> getEntity(), $dto);
+        $result = $this -> executeResultableQuery($dto);
         if (!empty($query -> getSubQueries())){
             foreach ($query -> getSubQueries() as $subQuery){
                 if ($subQuery -> getType() == 'in'){
@@ -110,7 +123,7 @@ class SqlMapper implements Mapper {
                     if (is_array($result)){
                         foreach ($result as $item){
                             $cloned = clone $subQuery -> getQuery();
-                            $item -> $table = $cloned -> search($subQuery -> getField(), equals($result -> $resField)) -> go($query -> getConnectionName());
+                            $item -> $table = $cloned -> search($subQuery -> getField(), equals($item -> $resField)) -> go($query -> getConnectionName());
                         }
                     } else{
                         $cloned = clone $subQuery -> getQuery();
@@ -121,14 +134,15 @@ class SqlMapper implements Mapper {
                 if ($subQuery -> getType() == 'out'){
                     $resField = $query -> getEntity() -> getCredentials()['identifier'];
                     $currField = $subQuery -> getField();
+                    $beautyField = explode('_', $currField)[0];
                     if (is_array($result)){
                         foreach ($result as $item){
                             $cloned = clone $subQuery -> getQuery();
-                            $item -> $currField = $cloned -> search($resField, equals($result -> $currField)) -> go($query -> getConnectionName());
+                            $item -> $beautyField = $cloned -> search($resField, equals($item -> $currField)) -> go($query -> getConnectionName());
                         }
                     } else{
                         $cloned = clone $subQuery -> getQuery();
-                        $result -> $currField = $cloned -> search($resField, equals($result -> $currField)) -> go($query -> getConnectionName());
+                        $result -> $beautyField = $cloned -> search($resField, equals($result -> $currField)) -> go($query -> getConnectionName());
                     }
                 }
             }
@@ -137,8 +151,8 @@ class SqlMapper implements Mapper {
     }
 
     public function scanConditions(array $conditions): DBDto{
-        $sqlString = ' WHERE ';
-
+        if (!empty($conditions))
+            $sqlString = ' WHERE ';
         $i = 1;
         foreach ($conditions as $field => $value){
             $sqlString .= $field . ' '.$value['operator'].' ?';
@@ -151,10 +165,10 @@ class SqlMapper implements Mapper {
         return new DBDto($sqlString, $values);
     }
 
-    public function executeResultableQuery(DataObject $entity, DBDto $dto){
+    public function executeResultableQuery(DBDto $dto){
         $prepared = $this -> dbHandler -> prepare($dto -> query);
         $executed = $prepared -> execute($dto -> params);
-        return $prepared -> fetchAll(PDO::FETCH_CLASS, $entity -> __toString());
+        return $prepared -> fetchAll(PDO::FETCH_CLASS, Model::class);
     }
 
     public function showSQL(DBDto $dto, $color){
